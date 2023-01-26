@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shedrack loves to code</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"-->
+<!--          th:href="@{https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css}"-->
+<!--    />-->
+</head>
+<body>
+<!--<div class="bg-white dark:bg-black">-->
+    <h1>This is Spring boot</h1>
+
+    <hr>
+    <p th:utext="#{welcome.message}">The love I have for Programming is huge. Shedrack Theshedman!</p>
+
+
+<h2>Welcome</h2>
+<p>Spring Security Thymeleaf tutorial</p>
+<div sec:authorize="hasRole('EMPLOYEE')">Text visible to employee.</div>
+<div sec:authorize="hasRole('MANAGER')">Text visible to manager.</div>
+<div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+<div sec:authorize="isAuthenticated()">
+    Text visible only to authenticated users.
+</div>
+Logged user: <span sec:authentication="name">Bob</span>
+Roles: <span sec:authentication="principal.authorities">[EMPLOYEE, ADMIN, MANAGER]</span>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" th:value="Logout">
+    </form>
+<!--</div>-->
+
+</body>
+</html>
